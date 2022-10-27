@@ -17,8 +17,8 @@ public class Mavenproject1
         int number;                     //wylosowana liczba
         int guess;                      //propozycja (strzał) gracza
         Random rand = new Random(); 
-        Player pl = new Player();
-        pl.setName("Gracz91");
+        Player pl = new Player("Gracz");
+        //pl.setName(null);
         
         do {
             System.out.println("---------------------");
