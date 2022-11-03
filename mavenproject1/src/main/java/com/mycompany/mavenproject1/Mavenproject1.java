@@ -8,17 +8,24 @@ package com.mycompany.mavenproject1;
  * @author Student
  */
 import java.util.Random;
+import java.util.Scanner;
 public class Mavenproject1 
 {
 
     public static void main(String[] args) 
     {
-          //obiekt losujący
-        int number;                     //wylosowana liczba
-        int guess;                      //propozycja (strzał) gracza
+        Scanner input = new Scanner(System.in);
+        int number;                     
+        int guess;                      
         Random rand = new Random(); 
-        Player pl = new Player("Gracz");
-        //pl.setName(null);
+        Player pl = new PlayerHuman("Gracz2");
+        
+        try {
+            pl.setName(input.next());
+        } catch (IllegalArgumentException e) {
+            
+        }
+            
         
         do {
             System.out.println("---------------------");
@@ -35,9 +42,6 @@ public class Mavenproject1
             else {
                 System.out.println("BRAWO!");
             }
-
         } while (number != guess);
-        
-        
     }
 }

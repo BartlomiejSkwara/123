@@ -14,7 +14,6 @@ import java.util.Random;
 public class Player 
 {
     
-    //private Scanner input = new Scanner(System.in);
     private Random rand = new Random(); 
     private String name = "Gracz";
     
@@ -28,14 +27,9 @@ public class Player
     }
     
     public void setName(String name)
-    {   
-        
-        if(name==null||!name.matches("^[A-Za-z0-9\\.\\-_]{3,}$"))
-        {
-            
-            System.err.println("ERROR::PLAYER::NAME_EMPTY_OR_NULL");
-            return;
-        }
+    {
+        if(name==null||!name.matches("^[A-Za-z\\d\\.\\-_]{3,}$"))
+            throw new IllegalArgumentException("ERROR::PLAYER::NAME_EMPTY_OR_NULL");
         
         this.name = name;
     }
@@ -47,6 +41,6 @@ public class Player
     
     public int guess()
     {   
-        return rand.nextInt(6)+1;//input.nextInt();
+        return rand.nextInt(6)+1;
     }
 }
