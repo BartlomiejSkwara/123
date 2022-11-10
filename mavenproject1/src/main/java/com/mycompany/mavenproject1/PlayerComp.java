@@ -3,22 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.mavenproject1;
+import java.util.Random;
 
-import java.util.Scanner;
-
-public class PlayerHuman extends Player {
+public class PlayerComp extends Player{
     
-    private Scanner input = new Scanner(System.in);
-
-    public PlayerHuman(){}     
-    public PlayerHuman(String name){
+    private Random rand = new Random(); 
+    
+    public PlayerComp(){}
+    public PlayerComp(String name){
         super(name);
     }
     
-    
     @Override
-    public int guess(){
-        System.out.println("Podaj liczbę");
-        return input.nextInt();
+    public int guess()
+    {   
+        return rand.nextInt(6)+1;
     }
 }
