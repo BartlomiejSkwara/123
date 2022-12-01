@@ -3,45 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 package com.mycompany.mavenproject1;
+
+//import java.util.ArrayList;
+//import java.util.Iterator;
+
 /**
  *
  * @author Student
  */
-import java.util.Random;
-import java.util.Scanner;
 public class Mavenproject1 
 {
 
     public static void main(String[] args) 
-    {
-        Scanner input = new Scanner(System.in);
-        int number;                     
-        int guess;                      
-        Random rand = new Random(); 
-        Player pl = new PlayerHuman("Gracz2");
+    {       
+        Game game = new Game();
+        for (int i = 0; i<1500; i++){game.addPlayer(new PlayerComp("Komputer"));}
+        game.play();
         
-        try {
-            pl.setName(input.next());
-        } catch (IllegalArgumentException e) {
-            
-        }
-            
-        
-        do {
-            System.out.println("---------------------");
-
-            number = rand.nextInt(6) + 1;
-            System.out.println("Kostka: " + number);
-
-            guess = pl.guess();
-            System.out.println(pl.getName() + ": " + guess);
-
-            if (number != guess) {
-                System.out.println("PUDŁO!");
-            }
-            else {
-                System.out.println("BRAWO!");
-            }
-        } while (number != guess);
     }
 }
