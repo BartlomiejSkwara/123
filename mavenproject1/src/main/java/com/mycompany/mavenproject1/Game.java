@@ -14,6 +14,7 @@ import java.util.Scanner;
  */
 public class Game {
     
+    private Statistics stats = new Statistics();
     private int winningNumber;                     
     private int guess;                      
     
@@ -25,6 +26,14 @@ public class Game {
         players.add(new PlayerComp("Komputer1"));
     }
     
+    public void printPlayers(){
+        
+        for(Player p:players){
+            System.out.print(p.getName()+" ");
+        }
+        System.out.println();
+        
+    }
     
     private boolean wasNameUsed(String name){
         for(Player p : players){
@@ -46,6 +55,16 @@ public class Game {
         }
     }
     
+    public void removePlayer(String name){
+        for(int i = 0; i<players.size(); i++){
+            if(players.get(i).getName().equals(name)){
+                players.remove(i);
+                break;
+            }
+            
+        }
+    }
+    
     public void play(){
         boolean someoneGuessed = false;
         do {
@@ -63,10 +82,16 @@ public class Game {
                 else {
                     someoneGuessed = true;
                     System.out.println("BRAWO dla gracza "+p.getName()+"!\n");
+                    stats.winner(p);
                 }
             }        
         
         } while (!someoneGuessed);
+    }
+    
+    
+    public void printStats(){
+        players.forEach((player)->{stats.printScore(player.getName());});
     }
     
 }

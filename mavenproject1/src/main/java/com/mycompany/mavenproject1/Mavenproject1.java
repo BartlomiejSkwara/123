@@ -17,8 +17,16 @@ public class Mavenproject1
     public static void main(String[] args) 
     {       
         Game game = new Game();
-        for (int i = 0; i<1500; i++){game.addPlayer(new PlayerComp("Komputer"));}
-        game.play();
+        for (int i = 0; i<15; i++){game.addPlayer(new PlayerComp("Komputer"));}
+        game.printPlayers();
+        game.removePlayer("Komputer");
+        game.printPlayers();
+        
+        for (int i = 0; i<15; i++){
+            game.play();
+        }
+        game.printStats();
+        
         
     }
 }
