@@ -15,8 +15,8 @@ public class Mavenproject1
 {
 
     public static void main(String[] args) 
-    {       
-        Game game = new Game();
+    {
+        Game game = new Game(new WinStatistics());
         for (int i = 0; i<15; i++){game.addPlayer(new PlayerComp("Komputer"));}
         game.printPlayers();
         game.removePlayer("Komputer");
@@ -26,6 +26,7 @@ public class Mavenproject1
             game.play();
         }
         game.printStats();
+        
         
         
     }

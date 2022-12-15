@@ -6,7 +6,6 @@ package com.mycompany.mavenproject1;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -14,7 +13,7 @@ import java.util.Scanner;
  */
 public class Game {
     
-    private Statistics stats = new Statistics();
+    private Statistics stats;
     private int winningNumber;                     
     private int guess;                      
     
@@ -22,8 +21,19 @@ public class Game {
         
     private ArrayList<Player> players = new ArrayList<>();
     
-    public Game(){
+    public Game(Statistics stats){
+        if(stats!=null){
+           this.stats = stats;  
+        }
+        else{
+            this.stats = new NullStatistics();
+        }
+        
         players.add(new PlayerComp("Komputer1"));
+    }
+    
+    public Game(){
+        this.stats = new NullStatistics();
     }
     
     public void printPlayers(){
@@ -91,7 +101,7 @@ public class Game {
     
     
     public void printStats(){
-        players.forEach((player)->{stats.printScore(player.getName());});
+       stats.printScores();
     }
     
 }
