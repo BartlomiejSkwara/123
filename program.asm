@@ -150,7 +150,7 @@ hexadec:        mov dx, offset _hex
 
 program          ends
 
-dane           segment
+dane           segment stack
     witam     db 'Witamy w konwerterze liczb :>$'
     pytanie   db 10,13,10,13,'Podaj dziesietna liczbe z zakresu <0,(2^16)-1>:',10,13,'$'
     errorD    db 'Podano liczba nie jest poprawnie zapisana !!!',10,13,10,13,'$'
@@ -169,7 +169,7 @@ dane           segment
     hex       db '0123456789ABCDEF'
 dane          ends
 
-stosk          segment
+stosk          segment stack
                 dw    100h dup(0)
 szczyt          Label word
 stosk          ends
